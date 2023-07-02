@@ -18,19 +18,19 @@
 
             <form class="form" action="register.php" method="post">
                 <div class="username">
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Username" name="username">
                 </div>
                 <div class="Email">
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" name="email">
                 </div>
                 <div class="creditcard id">
-                    <input type="number" placeholder="id">
+                    <input type="text" placeholder="id" name="cardid">
                 </div>
                 <div class="occupation">
-                    <input type="text" placeholder="Occupation or buisness">
+                    <input type="text" placeholder="Occupation or buisness" name="occupation">
                 </div>   
                 <div class="password">
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" name="password">
                 </div>
                 <input type="submit" value="Submit">
             </form>
