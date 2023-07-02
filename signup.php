@@ -16,7 +16,7 @@
             <div class="title">RCCS</div>
             <div class="title">Retro carbon credit service</div>
 
-            <div class="form">
+            <form class="form" action="register.php" method="post">
                 <div class="username">
                     <input type="text" placeholder="Username">
                 </div>
@@ -26,14 +26,17 @@
                 <div class="creditcard id">
                     <input type="number" placeholder="id">
                 </div>
+                <div class="occupation">
+                    <input type="text" placeholder="Occupation or buisness">
+                </div>   
                 <div class="password">
                     <input type="password" placeholder="Password">
                 </div>
-            </div>
+                <input type="submit" value="Submit">
+            </form>
 
             
             
-            <button class="sign-btn">Login</button>
            
             
 
