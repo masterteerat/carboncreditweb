@@ -3,9 +3,9 @@ $servername = "db";
 $dbusername = "user";
 $dbpassword = "test";
 $dbname = "myDb";
-$error_massage = "Test error massage";  
+$error_massage = NULL;  
 
-$input = FALSE;  
+$input = TRUE;  
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
@@ -19,31 +19,33 @@ $occupation = $_POST['occupation'];
 $password = $_POST['password'];
 
 
-if($input == TRUE){
+
   $sql = "INSERT INTO user (username, cardid, email, occupation, password)
   VALUES ('$username','$cardid','$email', '$occupation', '$password')";
 
-  if ($conn->query($sql) === TRUE) {
+  if ($conn->query($sql) == TRUE) {
       //echo "New record created successfully";
       header("Location: main.php");
       exit(0);
    
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      #echo "Error: " . $sql . "<br>" . $conn->error;
+      $error_massage = "This username already exist.";
+      echo
+      '<body onload="document.redirectform.submit()">   
+          <form method="POST" action="signup.php" name="redirectform" style="display:none">
+          <input name="username" value=' . $username. '>
+          <input name="cardid" value=' . $cardid. '>
+          <input name="email" value=' . $email. '>
+          <input name="occupation" value=' . $occupation. '>
+          <input name="password" value=' . $password. '>
+          <input name="error_massage" value="' .$error_massage. '">
+          </form>
+      </body>'; 
     }
   
     $conn->close();
-} else {
-   echo
-  '<body onload="document.redirectform.submit()">   
-      <form method="POST" action="signup.php" name="redirectform" style="display:none">
-      <input name="username" value=' . $username. '>
-      <input name="cardid" value=' . $cardid. '>
-      <input name="email" value=' . $email. '>
-      <input name="occupation" value=' . $occupation. '>
-      <input name="password" value=' . $password. '>
-      <input name="error_massage" value="' .$error_massage. '">
-      </form>
-  </body>'; 
-}
+
+
+
 ?>

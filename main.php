@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
-
+<?php
+$username = $_POST['username'];
+$password = $_POST['password'];
+?>
 
 <html>
     <head>
@@ -15,7 +18,9 @@
         <div class="sign-up">
             <a href="signup.php">Sign-up</a>
         </div>
-
+        <?php
+            echo $username          
+        ?>
     </body>
 
 

@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
 <?php
- 
+$username = $_POST['username'];
+$email = $_POST['email'];
+$cardid = $_POST['cardid'];
+$occupation = $_POST['occupation'];
+$password = $_POST['password'];
 $error_masssage = $_POST['error_massage']; 
 ?>
 
@@ -49,32 +57,35 @@ $error_masssage = $_POST['error_massage'];
             <?php
                 echo 
                 '
-                <div class="title">' .$error_masssage. '</div>
-                '
+                <div class="title" style="color:red">' .$error_masssage. '</div>
+                ';
                 
-                ?>
+            ?>
             <form class="form" action="register.php" method="post" onsubmit ="return verifyPassword()">
-                <div class="username">
-                    <input type="text" placeholder="Username" name="username">
+            <?php
+                echo  
+                '<div class="username">
+                    <input type="text" placeholder="Username" name="username" value="' .$username. '">
                 </div>
-
+            
                 <div class="Email">
-                    <input type="text" placeholder="Email" name="email">
+                    <input type="text" placeholder="Email" name="email" value="' .$email. '">
                 </div>
                 <div class="cardid">
-                    <input type="text" placeholder="id" name="cardid">
+                    <input type="text" placeholder="id" name="cardid" value="' .$cardid. '">
                 </div>
 
                 <div class="occupation">
-                    <input type="text" placeholder="Occupation or buisness" name="occupation">
+                    <input type="text" placeholder="Occupation or buisness" name="occupation" value="' .$occupation. '">
                 </div>  
                 <div class="password">
-                    <input type="password" placeholder="Password" name="password" id="password">
+                    <input type="password" placeholder="Password" name="password" id="password" value="' .$password. '">
                 </div>
+                
                 <span id = "message" style="color:red" value=""> </span> <br><br>
 
-                <input type="submit" value="Submit">
-
+                <input type="submit" value="Submit">'
+            ?>
             </form>
 
  
